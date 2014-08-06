@@ -1,0 +1,34 @@
+---
+Name: phantomjs
+Cartridge-Short-Name: PHANTOMJS
+Display-Name: phantomjs 1.9
+Description: PhantomJS is a headless WebKit scriptable with a JavaScript API.
+  It has fast and native support for various web standards such as DOM handling,
+  CSS selector, JSON, Canvas, and SVG
+Version: '1.9'
+Versions:
+- '1.9'
+License: BSD License
+License-Url: https://github.com/ariya/phantomjs/blob/master/LICENSE.BSD
+Vendor: www.phantomjs.org
+Website: http://www.phantomjs.org/
+Cartridge-Version: 0.0.1
+Compatible-Versions:
+- 0.0.1
+Cartridge-Vendor: hienchu
+Categories:
+- service
+- javascript
+- phantomjs
+- web_framework
+Provides:
+- phantomjs-1.9
+- phantomjs
+Scaling:
+  Min: 1
+  Max: -1
+Endpoints:
+- Private-IP-Name: IP
+  Private-Port-Name: PORT
+  Private-Port: 8080
+  Public-Port-Name: PROXY_PORT
