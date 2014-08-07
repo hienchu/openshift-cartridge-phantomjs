@@ -24,6 +24,7 @@ Categories:
 Provides:
 - phantomjs-1.9
 - phantomjs
+Source-Url: https://github.com/hienchu/openshift-cartridge-phantomjs.git
 Scaling:
   Min: 1
   Max: -1
