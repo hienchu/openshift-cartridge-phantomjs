@@ -24,7 +24,7 @@ function status() {
 
 
 function start() {
-    logf="$OPENSHIFT_PHANTOMJS_DIR/logs/phantomjs.log"
+    logf="$OPENSHIFT_PHANTOMJS_LOG_DIR/logs/phantomjs.log"
     {
         if [ -f "$OPENSHIFT_PHANTOMJS_DIR/phantomjs/$PHANTOMJS_VERSION/bin/phantomjs" ]; then
             echo "`date +"$FMT"`: Starting application '$OPENSHIFT_APP_NAME' from $OPENSHIFT_PHANTOMJS_DIR/phantomjs/$PHANTOMJS_VERSION/bin/phantomjs..."
