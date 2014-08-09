@@ -30,5 +30,6 @@ Endpoints:
   Private-Port: 8080
   Public-Port-Name: PROXY_PORT
   Mappings:
-    - Frontend:""
-      Backend:""
+    - Frontend:      "/"
+      Backend:       "/"
+      Options:       { "websocket": true }
