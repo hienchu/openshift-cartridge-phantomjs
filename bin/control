@@ -4,8 +4,8 @@ STOPTIMEOUT=10
 FMT="%a %b %d %Y %H:%M:%S GMT%z (%Z)"
 
 function is_phantomjs_service_running() {
-    if [ -f pid/phantomjs.pid ]; then
-        phantomjs_pid=$( cat $OPENSHIFT_PHANTOMJS_DIR/pid/phantomjs.pid 2> /dev/null )
+    if [ -f phantomjs.pid ]; then
+        phantomjs_pid=$( cat $OPENSHIFT_PHANTOMJS_DIR/phantomjs.pid 2> /dev/null )
         if `ps --pid $phantomjs_pid 2>&1`; then
             return 0
         fi
@@ -46,7 +46,7 @@ function start() {
 }
 
 function stop() {
-    if [ -f pid/phantomjs.pid ]; then
+    if [ -f phantomjs.pid ]; then
         phantomjs_pid=$( cat $OPENSHIFT_PHANTOMJS_DIR/phantomjs.pid 2> /dev/null )
     fi
 
@@ -65,7 +65,7 @@ function stop() {
         fi
 
         echo "`date +"$FMT"`: Stopped phantomjs application '$OPENSHIFT_APP_NAME'" >> $logf
-        rm -f $OPENSHIFT_PHANTOMJS_DIR/pid/phantomjs.pid
+        rm -f $OPENSHIFT_PHANTOMJS_DIR/phantomjs.pid
     else
         echo "Warning: Application '$OPENSHIFT_APP_NAME' server exists without a pid file.  Use force-stop to kill." 1>&2
     fi
