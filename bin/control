@@ -26,10 +26,10 @@ function status() {
 function start() {
     logf="$OPENSHIFT_PHANTOMJS_LOG_DIR/phantomjs.log"
     {
-        if [ -f "$OPENSHIFT_PHANTOMJS_DIR/$PHANTOMJS_VERSION/bin/phantomjs" ]; then
-            echo "`date +"$FMT"`: Starting application '$OPENSHIFT_APP_NAME' from $OPENSHIFT_PHANTOMJS_DIR/phantomjs/$PHANTOMJS_VERSION/bin/phantomjs..."
+        if [ -f "$OPENSHIFT_PHANTOMJS_DIR/versions/$PHANTOMJS_VERSION/bin/phantomjs" ]; then
+            echo "`date +"$FMT"`: Starting application '$OPENSHIFT_APP_NAME' from $OPENSHIFT_PHANTOMJS_DIR/versions/$PHANTOMJS_VERSION/bin/phantomjs..."
             phantomjs_app=${$phantomjs_app:-"server.js"}
-            nohup "$OPENSHIFT_PHANTOMJS_DIR/$PHANTOMJS_VERSION/bin/phantomjs" $phantomjs_app $OPENSHIFT_PHANTOMJS_PORT >> $logf 2>&1 &
+            nohup "$OPENSHIFT_PHANTOMJS_DIR/versions/$PHANTOMJS_VERSION/bin/phantomjs" $phantomjs_app $OPENSHIFT_PHANTOMJS_PORT >> $logf 2>&1 &
 
             ret=$?
             npid=$!
@@ -40,7 +40,7 @@ function start() {
                 exit $ret
             fi
         else
-            echo "WARN: Could not find the compiled application $OPENSHIFT_PHANTOMJS_DIR/$PHANTOMJS_VERSION/bin/phantomjs or ${phantomjs_app}, will not start"
+            echo "WARN: Could not find the compiled application $OPENSHIFT_PHANTOMJS_DIR/versions/$PHANTOMJS_VERSION/bin/phantomjs or ${phantomjs_app}, will not start"
         fi
     } >> $logf
 }
@@ -51,7 +51,7 @@ function stop() {
     fi
 
     if [ -n "$phantomjs_pid" ]; then
-        logf="$OPENSHIFT_PHANTOMJS_DIR/logs/phantomjs.log"
+        logf="$OPENSHIFT_PHANTOMJS_DIR/phantomjs.log"
         echo "`date +"$FMT"`: Stopping application '$OPENSHIFT_APP_NAME' ..." >> $logf
         /bin/kill $phantomjs_pid
         ret=$?
