@@ -32,4 +32,3 @@ Endpoints:
   Mappings:
     - Frontend:""
       Backend:""
-      Options:{ "websocket":true }
