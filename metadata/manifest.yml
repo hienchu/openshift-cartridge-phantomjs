@@ -28,8 +28,8 @@ Endpoints:
 - Private-IP-Name: IP
   Private-Port-Name: PORT
   Private-Port: 8080
-  Public-Port-Name:  PROXY_PORT
+  Public-Port-Name: PROXY_PORT
   Mappings:
     - Frontend:""
       Backend:""
-      Options:{ websocket: true }
+      Options:{ "websocket":true }
