@@ -34,7 +34,7 @@ function start() {
             ret=$?
             npid=$!
             if [ $ret -eq 0 ]; then
-                echo "$npid" > "$OPENSHIFT_PHANTOMJS_DIR/pid/phantomjs.pid"
+                echo "$npid" > "$OPENSHIFT_PHANTOMJS_DIR/phantomjs.pid"
             else
                 echo "Application '$OPENSHIFT_APP_NAME' failed to start - $ret" 1>&2
                 exit $ret
@@ -47,7 +47,7 @@ function start() {
 
 function stop() {
     if [ -f pid/phantomjs.pid ]; then
-        phantomjs_pid=$( cat $OPENSHIFT_PHANTOMJS_DIR/pid/phantomjs.pid 2> /dev/null )
+        phantomjs_pid=$( cat $OPENSHIFT_PHANTOMJS_DIR/phantomjs.pid 2> /dev/null )
     fi
 
     if [ -n "$phantomjs_pid" ]; then
