@@ -28,7 +28,7 @@ function start() {
     {
         if [ -f "$OPENSHIFT_PHANTOMJS_DIR/versions/$PHANTOMJS_VERSION/bin/phantomjs" ]; then
             echo "`date +"$FMT"`: Starting application '$OPENSHIFT_APP_NAME' from $OPENSHIFT_PHANTOMJS_DIR/versions/$PHANTOMJS_VERSION/bin/phantomjs..."
-            phantomjs_app=${$phantomjs_app:-"server.js"}
+            phantomjs_app=${phantomjs_app:-"server.js"}
             nohup "$OPENSHIFT_PHANTOMJS_DIR/versions/$PHANTOMJS_VERSION/bin/phantomjs" $phantomjs_app $OPENSHIFT_PHANTOMJS_PORT >> $logf 2>&1 &
 
             ret=$?
